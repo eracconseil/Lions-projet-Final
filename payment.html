@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="https://www.paypal.com/sdk/js?client-id=AYPnM1lDEWYAyjx1T3bfDvYlCptibCqyH51vpgSBAlouTrwG-oHdUxD49sk1hOb52Ovoi-S1tNxhn1SP"></script>
+
+</head>
+<body>
+
+<div id="paypal-button-container"></div>
+
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions){
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value:'€35.00'
+                        }
+                    }]
+                });
+            },
+             onApprove: function(data, actions){
+                return actions.order.capture().then(function(details){
+                    alert("Transaction OK  : "+details.payer.name.given_name);
+                 })
+            },
+             onError: function(err){
+                console.error('Payment Error :', err );
+                 alert("Paiement echoue!");
+             }
+            }).render("#paypal-button-container");
+    </script>
+</body>
+</html>   

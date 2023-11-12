@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Lions Xenium Charity Action</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="favicon 2.ico" />
+    <link rel="icon" type="image/png" href="LCI_emblem_2color_web.png" sizes="32x32" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <img src="LCI_emblem_2color_web.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#!">Lions Xenium</a>
+           
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                   
+
+                <form class="d-flex">
+                    <!--input class="form-control text-center me-3" id="inputQuantityNavbar" type="number" value="1" style="max-width: 3rem" />
+                    <button class="btn btn-outline-dark flex-shrink-0" type="button" onclick="addToCartAndCheckout()">
+                        <i class="bi-cart-fill me-1"></i>
+                        Add to Cart
+                    </button-->
+
+                    <!--button class="btn btn-outline-dark" type="submit" onclick="checkout()"-->
+                        <!--i class="bi-bag-check me-1"></i-->
+                        <a href="payment2.html" class="btn btn-outline-dark">
+                            <i class="bi-bag-check me-1"></i>
+                            Checkout
+                            <span id="cartTotal" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </a>
+                        <!--Checkout-->
+                        <!--span id="cartTotal" class="badge bg-dark text-white ms-1 rounded-pill">0</span-->
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6">
+                    <img class="card-img-top mb-5 mb-md-0" src="Panettone1.png" alt="..." />
+                </div>
+                <div class="col-md-6">
+                    
+                    <h1 class="display-5 fw-bolder">Delicious Panettone</h1>
+                    <div class="fs-5 mb-5">
+                        <!--span class="text-decoration-line-through">€35.00</span-->
+                        <span>€35.00</span>
+                    </div>
+                    <p class="lead">Enjoy our mouthwatering Panettone, freshly baked to perfection. Perfect for the holiday season or any occasion. Order now and savor the taste of Italy!</p>
+                    <div class="d-flex">
+                        <input class="form-control text-center me-3" id="inputQuantityProduct" type="number" value="0" style="max-width: 3rem" />
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button" onclick="updateQuantitiesAndCheckout()">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related items section-->
+    <section class="py-5 bg-light">
+        <div class="container px-4 px-lg-5 mt-5">
+            <!--h2 class="fw-bolder mb-4">Related products</h2-->
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <!-- Related product cards go here -->
+                <!-- ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Lions Xenium </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+
+function changeLanguage(lang) {
+            // You can implement language change logic here
+            // For example, you can update the content of elements based on the selected language
+            if (lang === 'en') {
+                document.getElementById('navbarBrand').innerText = 'Lions Xenium';
+                document.getElementById('checkoutButton').innerText = 'Checkout';
+            } else if (lang === 'fr') {
+                document.getElementById('navbarBrand').innerText = 'Lions Xenium (FR)';
+                document.getElementById('checkoutButton').innerText = 'Finaliser l\'achat';
+            }
+            // Add more elements as needed
+
+            console.log("Selected Language: " + lang);
+        }
+        function updateQuantitiesAndCheckout() {
+            updateQuantities();
+            checkout(); // Trigger the checkout process
+        }
+
+        function updateQuantities() {
+            var quantityProduct = document.getElementById('inputQuantityProduct').value;
+            var totalSpan = document.getElementById('cartTotal');
+            totalSpan.textContent = quantityProduct;
+
+            // Update the checkout quantity as well
+            var checkoutQuantityInput = document.getElementById('inputQuantityCheckout');
+            checkoutQuantityInput.value = quantityProduct;
+        }
+
+        function checkout() {
+            // Your existing checkout logic
+            // Add any additional checkout logic here if needed
+            console.log("Checkout logic triggered");
+        }
+    </script>
+</body>
+
+</html>
